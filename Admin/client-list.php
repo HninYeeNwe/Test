@@ -46,8 +46,6 @@
 
 	mysqli_close($conn);
  ?>
-
-
 <!-- navbar section -->
 	<nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light">
 	  	<button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#myNavbar">
@@ -102,10 +100,10 @@
 			<div class="col-xl-9 col-lg-8 ml-auto">
 				<div class="container-fluid p-3 mb-5">
 					<div class="row">
-						<div class="col-md-10">
+						<div class="col-md-9">
 							<h3 class="text-center my-5 client">သုံးစွဲသူများ စာရင်း</h3>
 						</div>
-						<div class="col-md-2 mt-5">
+						<div class="col-md-3 mt-5">
 							<a class="btn btn-info btn-small text-white" href="client-new.php">Add New Client</a>
 						</div>
 					</div>
@@ -113,16 +111,17 @@
 					<div class="row my-5">
 						<?php 
 							foreach ($clients as $client) {?>
-
 							<div class="col-sm-6 col-md-3 mb-5">
 								<div class="client-top">
+									<a href="gallery.php?id=<?php echo $client['cid']; ?>">
 									<img src="../images/<?php echo $client['cimage']; ?>" class="img-fluid" alt="">
+									</a>
 								</div>
 								<div class="client-bottom mt-3 text-center">
-									<h5 class="mt-4 font-size-16 font-rb"><?php echo $client['cname']; ?></h5>
+									<h5 class="font-size-16 text-center font-rb"><?php echo $client['cname']; ?></h5>
 								</div>
 
-								<form action="client-del.php" method="post" class="align-center d-flex">
+								<form action="client-del.php" method="post" class="ml-5 mt-3 d-flex">
 									<input type="hidden" name="id_to_delete" value="<?php echo $client['cid'] ?>"> 
 									<input type="submit" name="delete" value="Delete" class="btn btn-primary text-white mr-3">
 									<a href="client-edit.php?id=<?php echo $client['cid']; ?>" class = "btn btn-info text-white font-size-16 font-rb">edit</a>
@@ -137,12 +136,13 @@
 <!-- client section end -->
 
 <!-- footer section start -->
-<div class="row mt-lg-5">
-			<div class="col-xl-9 col-lg-8 ml-auto">
-	<footer class="text-muted mt-5 text-center">
-		copyright &copy; <?php echo date("Y"); ?> HSP Digital Marketing Agency Co., ltd. All right reserved.		
-	</footer>
-</div></div>
+	<div class="row mt-lg-5">
+		<div class="col-xl-9 col-lg-8 ml-auto">
+			<footer class="text-muted mt-5 text-center">
+				copyright &copy; <?php echo date("Y"); ?> HSP Digital Marketing Agency Co., ltd. All right reserved.		
+			</footer>
+		</div>
+	</div>
 <!-- footer section end -->
 
 
